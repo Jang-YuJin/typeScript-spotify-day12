@@ -1,6 +1,6 @@
 import axios from "axios";
 import { CLIENT_ID, CLIENT_SECRET } from "../configs/authConfig";
-import { ClientCredentialTokenResponse } from "../models/auth";
+import { ClientCredentialTokenResponse, ExchangeTokenResponse } from "../models/auth";
 import { REDIRECT_URI } from "../configs/commonConfig";
 
 const encodedBase64 = (data: string): string => {
@@ -30,7 +30,7 @@ export const getClientCredentialToken = async(): Promise<ClientCredentialTokenRe
     }
 };
 
-export const exchangeToken = async(code: string, codeVerifier: string) => {
+export const exchangeToken = async(code: string, codeVerifier: string): Promise<ExchangeTokenResponse> => {
     try {
         const url = "https://accounts.spotify.com/api/token";
         const body = new URLSearchParams({

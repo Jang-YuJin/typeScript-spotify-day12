@@ -7,8 +7,8 @@ const useGetCurrentUserProfile = (): UseQueryResult<User, Error> => {
 
     return useQuery({
         queryKey: ['current-user-profile'],
-        queryFn: getCurrentUserProfile,
-        enabled: !!access_token
+         enabled: !!access_token,
+        queryFn: getCurrentUserProfile
     });
 };
 
