@@ -1,0 +1,31 @@
+.emptyKeywordCardContainer{
+  position: relative;
+  width: 100%;
+  max-width: 450px;
+  height: 230px;
+
+  border-radius: 12px;
+
+  padding: 20px;
+  overflow: hidden; /* 이미지 삐져나가는 거 정리 */
+}
+
+.emptyKeywordCardText{
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: white;
+  z-index: 2;
+  position: relative;
+}
+
+.emptyKeywordCardImg{
+  position: absolute;
+  right: -10px;
+  bottom: -20px;
+
+  width: 140px;
+  height: auto;
+
+  transform: rotate(15deg);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+}

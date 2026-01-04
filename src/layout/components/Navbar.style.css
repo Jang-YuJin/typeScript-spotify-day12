@@ -1,0 +1,60 @@
+.userProfileWrapper {
+    position: relative;
+}
+
+.userProfileImg{
+    width: 30px;
+    height: 30px;
+    background-color: rgba(255, 255, 255, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+    object-fit: cover;
+}
+
+.noUserProfileImg{
+    width: 30px;
+    height: 30px;
+    background-color: rgba(255, 255, 255, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+}
+
+.userProfileContainer{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.1);
+    height: 60px;
+    padding: 20px;
+    border-radius: 32px;
+    cursor: pointer;
+}
+
+.logoutMenu {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    background-color: #222;
+    border-radius: 12px;
+    padding: 8px;
+    z-index: 10;
+}
+
+.logoutBtn {
+    background: none;
+    border: none;
+    color: white;
+    padding: 8px 16px;
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+}
+
+.logoutBtn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}

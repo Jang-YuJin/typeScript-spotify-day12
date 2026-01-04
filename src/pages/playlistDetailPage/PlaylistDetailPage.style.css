@@ -1,0 +1,128 @@
+.playlistDetailContainer {
+  height: calc(100% - 70px);
+  overflow-y: auto;
+  margin-bottom: 10px;
+}
+
+.playlistStickyHeader {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  height: 0px;
+  background-color: rgba(0, 0, 0, 0.95);
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  /* border-top-left-radius: 20px; */
+  /* border-top-right-radius: 20px; */
+  border-radius: 20px;
+}
+
+.playlistStickyHeader.visible {
+  opacity: 1;
+  height: 56px;
+  pointer-events: auto;
+}
+
+.stickyHeaderContent {
+  display: flex;
+  align-items: center;
+}
+
+.stickyPlaylistName {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-left: 10px;
+}
+
+.playlistHeadContainer{
+    background-color: black;
+    padding: 20px;
+    /* border-top-left-radius: 20px; */
+    /* border-top-right-radius: 20px; */
+    border-radius: 20px;
+}
+
+.playlistHeadImg{
+    width: 200px;
+    height: 200px;
+    border-radius: 20px;
+    object-fit: cover;
+}
+
+.playlistHeadNoImg{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 200px;
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.playlistHeadinfoContainer{
+    display: flex;
+}
+
+.playlistHeadLogoImg{
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+.playlistHeadName{
+    font-size: 2rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: inline-block;
+    align-self: flex-start;
+    margin: 10px 0;
+}
+
+.playlistHeadName:hover{
+    background-color: rgba(30, 215, 96, 0.2);
+    border-radius: 20px;
+}
+
+.playlistInfoContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+}
+
+.dot{
+    margin: 0 10px;
+}
+
+.MuiTableCell-head {
+  position: sticky;
+  background-color: #121212;
+  top: 56px; /* StickyHeader 높이만큼 */
+  z-index: 10;
+  border-bottom: none;
+  box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* 반드시 이게 있어야 함 */
+.playlistDetailContainer::-webkit-scrollbar {
+    width: 6px;
+}
+
+.playlistDetailContainer::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.playlistDetailContainer::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.2); /* 밝은 회색 */
+    border-radius: 6px;
+}
+
+@media (max-width: 900px){
+    .playlistHeadName{
+        font-size: 1rem;
+    }
+}

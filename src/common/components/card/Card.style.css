@@ -1,0 +1,52 @@
+.cardContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+}
+
+.cardContainer:hover{
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+.cardContainer > img{
+    width: 200px;
+    height: 200px;
+    border-radius: 10px;
+}
+
+.nameTypo, .artistTypo{
+    width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.palyButton{
+    position: absolute;
+    bottom: 70px;
+    right: 0;
+    transform: translate(-50%, -50%);
+    display: none; /* 기본적으로 숨김 */
+    cursor: pointer;
+    transition: opacity 1s ease; /* 부드러운 등장 효과 (선택 사항) */
+    z-index: 1; /* 이미지가 버튼 위로 올라오지 않도록 */
+}
+
+.cardContainer:hover .palyButton{
+    display: block;
+}
+
+/* ====== 모바일 대응 (1200px 이하) ====== */
+@media (max-width: 1200px) {
+    .cardContainer > img{
+        width: 150px;
+        height: 150px;
+    }
+
+    .nameTypo, .artistTypo{
+        width: 150px;
+    }
+}

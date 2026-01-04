@@ -1,0 +1,18 @@
+.playlistContainer {
+    overflow-y: auto;
+    max-height: calc(100vh - 240px);
+}
+
+/* 반드시 이게 있어야 함 */
+.playlistContainer::-webkit-scrollbar {
+    width: 6px;
+}
+
+.playlistContainer::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.playlistContainer::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.2); /* 밝은 회색 */
+    border-radius: 6px;
+}

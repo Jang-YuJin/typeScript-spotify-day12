@@ -1,0 +1,17 @@
+.searchContainer{
+    overflow-y: auto;
+    height: calc(100% - 70px);
+}
+
+.searchContainer::-webkit-scrollbar {
+    width: 6px;
+}
+
+.searchContainer::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.searchContainer::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.2); /* 밝은 회색 */
+    border-radius: 6px;
+}
