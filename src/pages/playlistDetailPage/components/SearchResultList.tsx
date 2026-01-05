@@ -1,19 +1,17 @@
-import React from 'react'
+import React, { forwardRef } from 'react'
 import './SearchResultList.style.css'
 import { Track } from '../../../models/track';
 import { Button, Table, TableBody, TableCell, TableRow, Typography, useMediaQuery } from '@mui/material';
-import Loading from '../../../common/components/loading/Loading';
+import playlistStore from '../../../store/playlistStore';
 import useAddItemsToPlaylist from '../../../hooks/useAddItemsToPlaylist';
 import ErrorMessage from '../../../common/components/error/ErrorMessage';
-import playlistStore from '../../../store/playlistStore';
 
 interface SearchResultListProps {
-    list: Track[];
-    ref: (node?: Element | null | undefined) => void;
-    isFetchingNextPage: boolean;
+    track: Track;
 }
 
-const SearchResultList = ({list, ref, isFetchingNextPage}: SearchResultListProps) => {
+const SearchResultList = forwardRef<HTMLTableRowElement, SearchResultListProps>(
+  ({ track }, ref) => {
   const isMobile = useMediaQuery("(max-width:767px)");
   const {mutate: addItemsToPlaylist} = useAddItemsToPlaylist();
   const {playlistId} = playlistStore();
@@ -30,9 +28,7 @@ const SearchResultList = ({list, ref, isFetchingNextPage}: SearchResultListProps
   };
 
   return (
-    <TableBody className='searchResultTable'>
-      {list.map((track, index) => (
-        <TableRow key={index}>
+        <TableRow ref={ref}>
           <TableCell>
             <span className='searchResultImgContainer'>
               <img className='searchResultImg' src={track.album?.images[0].url ?? '/noimg.png'}></img>
@@ -47,10 +43,8 @@ const SearchResultList = ({list, ref, isFetchingNextPage}: SearchResultListProps
               <Button variant='outlined' onClick={() => handleAdd(track)}>추가</Button>
             </TableCell>
         </TableRow>
-      ))}
-      <TableRow ref={ref}>{isFetchingNextPage && <Loading></Loading>}</TableRow>
-    </TableBody>
   )
 }
+);
 
 export default SearchResultList

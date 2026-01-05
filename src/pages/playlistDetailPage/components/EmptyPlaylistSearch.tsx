@@ -14,10 +14,10 @@ const EmptyPlaylistSearch = () => {
   const {data, error, isLoading, hasNextPage, isFetchingNextPage, fetchNextPage} = useSearchItem({
     q: keyword,
     type: [SEARCH_TYPE.Track],
-    limit: 50
+    limit: 10
   });
   const { ref, inView } = useInView();
-  
+
   const handleSearchKeyword = (event: React.ChangeEvent<HTMLInputElement>) => {
     setKeyword(event.target.value)
   };
@@ -38,13 +38,15 @@ const EmptyPlaylistSearch = () => {
       {error ? <ErrorMessage errorMessage={error.message}></ErrorMessage>: ''}
       { data?.pages[0].tracks
       ? (data?.pages[0].tracks?.items.length > 0 
-        ? data?.pages.map((item) => {
+        ? data?.pages.map((item, index) => {
+          const isLast = index === data?.pages.length - 1;
           if(!item.tracks) return;
-          return <SearchResultList list={item.tracks?.items} ref={ref} isFetchingNextPage={isFetchingNextPage}></SearchResultList>
+          return item.tracks.items.map((track) => <SearchResultList track={track} ref={isLast ? ref : undefined}></SearchResultList>)
         })
         : <div style={{marginTop: '10px'}}>'{keyword}'에 대한 검색결과가 없습니다.</div>
         )
       : ''}
+      {isFetchingNextPage && <Loading></Loading>}
     </div>
   )
 }
